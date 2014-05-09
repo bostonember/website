@@ -41,7 +41,8 @@
     "andThen",
     "currentUrl",
     "currentPath",
-    "currentRouteName"
+    "currentRouteName",
+    "Pretender"
   ],
   "node" : false,
   "browser" : false,

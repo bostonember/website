@@ -16,3 +16,11 @@ test('Should welcome me to Boston Ember', function() {
     equal(find('h2#title').text(), 'Welcome to Boston Ember');
   });
 });
+
+test('Should allow navigating back to root from another page', function() {
+  visit('/about').then(function() {
+    click('a:contains("Home")').then(function() {
+      notEqual(find('h3').text(), 'About');
+    });
+  });
+});
