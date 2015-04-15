@@ -1,0 +1,26 @@
+<h4>Listing Meetups</h4>
+{{#link-to 'admin.meetups.new' tagName='button' classNames='btn btn-primary'}}Add New{{/link-to}}
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Date</th>
+      <th>Title</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    {{#each model as |meetup|}}
+      <tr>
+        <td>{{meetup.id}}</td>
+        <td>{{moment meetup.date 'MM/DD/YY'}}</td>
+        <td>{{meetup.title}}</td>
+        <td>
+          {{#link-to 'admin.meetup.edit' meetup.id}}Edit{{/link-to}}
+          <a href="#" {{action deleteMeetup meetup}}>Delete</a>
+        </td>
+      </tr>
+    {{/each}}
+  </tbody>
+</table>

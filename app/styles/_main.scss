@@ -1,0 +1,40 @@
+html, body {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-weight: $body-font-weight;
+  border-top: 20px solid $brand-primary;
+  border-bottom: 20px solid $brand-primary;
+}
+
+#main {
+  padding-top: 40px;
+  padding-bottom: 40px;
+  text-align: center;
+}
+
+.content {
+  text-align: left;
+
+  .index & {
+    text-align: center;
+  }
+}
+
+.nav-pills {
+  display: inline-block;
+  margin-bottom: 24px;
+
+  a {
+    color: #333;
+    font-size: 1.1em;
+  }
+}
+
+#logo {
+  position: absolute;
+  top: 28px;
+  right: 10px;
+}

@@ -1,0 +1,29 @@
+.tomster {
+  img {
+  }
+}
+
+.next-meetup {
+  .info-block {
+    border-bottom: 1px solid $peach;
+    border-top: 1px solid $peach;
+    padding: 30px;
+    margin-bottom: 85px;
+  }
+
+  h2 {
+    font-size: 30px;
+    margin-top: 0;
+  }
+
+  .meetup-title {
+    font-weight: $body-font-weight;
+    font-size: 21px;
+  }
+
+  .meetup-date {
+    color: $orange;
+    font-size: 26px;
+    margin: 24px 0;
+  }
+}

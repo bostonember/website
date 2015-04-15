@@ -3,7 +3,11 @@
 module.exports = function(environment) {
   var ENV = {
     modulePrefix: 'boston-ember',
+    podModulePrefix: 'boston-ember/pods',
     environment: environment,
+    contentSecurityPolicy: { 'connect-src': "'self' wss://*.firebaseio.com" },
+    // TODO: ENV var
+    firebase: 'https://bostonember.firebaseio.com/',
     baseURL: '/',
     locationType: 'auto',
     EmberENV: {

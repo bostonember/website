@@ -11,6 +11,12 @@
     "ember-resolver": "~0.1.15",
     "jquery": "^1.11.1",
     "loader.js": "ember-cli/loader.js#3.2.0",
-    "qunit": "~1.17.1"
+    "qunit": "~1.17.1",
+    "firebase": "^2.1.0",
+    "ember-cli-moment-shim": "~0.1.0",
+    "bootstrap-sass": "~3.3.4"
+  },
+  "devDependencies": {
+    "bootstrap-sass": "~3.3.4"
   }
 }
