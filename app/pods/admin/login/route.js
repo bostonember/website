@@ -1,26 +1,25 @@
 import Ember from 'ember';
-import Firebase from 'firebase';
-import config from 'boston-ember/config/environment';
 
 export default Ember.Route.extend({
-  actions: {
-    login(email, password) {
-      // TODO firebase service
-      var firebase = new Firebase(config.firebase);
-      var credentials = {
-        email: email,
-        password: password
-      };
+  firebase: Ember.inject.service('firebase'),
 
-      firebase.authWithPassword(credentials, this._authResponse);
-    }
+  activate() {
+    this.controllerFor('admin').set('isLoginRoute', true);
   },
 
-  _authResponse(error) {
-    if (error) {
-      alert("COMEON MAN! You know that's not a valid account.");
-    } else {
-      this.transitionTo('admin');
+  deactivate() {
+    this.controllerFor('admin').set('isLoginRoute', false);
+  },
+
+  actions: {
+    login(credentials) {
+      this.get('firebase').authWithPassword(credentials, (error) => {
+        if (error) {
+          alert("COMEON MAN! You know that's not a valid account.");
+        } else {
+          this.transitionTo('admin.meetups.index');
+        }
+      });
     }
   }
 });

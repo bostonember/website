@@ -1,0 +1,11 @@
+{{#unless isLoginRoute}}
+  <h3>Do some stuff!</h3>
+
+  <ul class="nav nav-tabs">
+    {{#link-to 'admin.meetups' tagName='li'}}<a href="#">Manage Meetups</a>{{/link-to}}
+  </ul>
+{{/unless}}
+
+<div class="tab-content">
+  {{outlet}}
+</div>

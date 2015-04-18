@@ -1,0 +1,26 @@
+<form class="form" {{action 'saveMeetup' on='submit'}}>
+  <div class="form-group">
+    <label>Date</label>
+    {{input type="date" value=meetup.date class="form-control"}}
+  </div>
+
+  <h4>Presentations</h4>
+  <div class="row">
+    {{#each meetup.presentations as |presentation|}}
+      <div class="col-md-6">
+        <div class="form-group">
+          <label>Title</label>
+          {{input value=presentation.title class="form-control"}}
+        </div>
+        <div class="form-group">
+          <label>Body</label>
+          {{textarea value=presentation.title rows="10" class="form-control"}}
+        </div>
+      </div>
+
+      {{view 'select' content=speakers}}
+    {{/each}}
+  </div>
+
+  {{! TODO: VENUE }}
+</form>

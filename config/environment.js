@@ -5,7 +5,11 @@ module.exports = function(environment) {
     modulePrefix: 'boston-ember',
     podModulePrefix: 'boston-ember/pods',
     environment: environment,
-    contentSecurityPolicy: { 'connect-src': "'self' wss://*.firebaseio.com" },
+    contentSecurityPolicy: {
+      'connect-src': "'self' wss://*.firebaseio.com https://auth.firebase.com",
+      'style-src': "'self' http://fonts.googleapis.com",
+      'font-src': "'self' http://fonts.gstatic.com"
+    },
     // TODO: ENV var
     firebase: 'https://bostonember.firebaseio.com/',
     baseURL: '/',
