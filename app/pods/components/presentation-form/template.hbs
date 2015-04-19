@@ -14,9 +14,37 @@
     optionValuePath="content.id"
     optionLabelPath="content.fullName"
     placeholder="Select a speaker"
+    selection=selectedSpeaker
     select-item="setSpeaker"}}
 
   <div class="form-group">
-    <button {{action 'addSpeaker'}} class="btn btn-default">Add Speaker</button>
+    <button {{action 'showAddSpeakerModal'}} class="btn btn-default">Add Speaker</button>
   </div>
+
+  {{#if isAddingSpeaker}}
+    {{#modal-dialog alignment='center' translucentOverlay=true classNames='modal-content'}}
+      {{#with presentation.speaker as |speaker|}}
+        <form class="form" {{action 'addSpeaker' speaker.content on='submit'}}>
+          <div class="modal-header">
+            <button type="button" class="close"><span {{action 'dismissAddSpeakerModal'}}>×</span></button>
+            <h4 class="modal-title">Add new speaker<a class="anchorjs-link"><span class="anchorjs-icon"></span></a></h4>
+          </div>
+
+          <div class="modal-body">
+            <label>First name</label>
+            {{input value=speaker.firstName class="form-control"}}
+            <label>Last name</label>
+            {{input value=speaker.lastName class="form-control"}}
+            <label>Email</label>
+            {{input type="email" value=speaker.email class="form-control"}}
+          </div>
+
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" {{action 'dismissAddSpeakerModal'}}>Close</button>
+            <input type="submit" class="btn btn-primary" value="Save changes">
+          </div>
+        </form>
+      {{/with}}
+    {{/modal-dialog}}
+  {{/if}}
 </div>

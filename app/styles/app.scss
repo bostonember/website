@@ -4,3 +4,16 @@
 @import 'main';
 @import 'index';
 @import 'admin';
+
+@import "ember-modal-dialog/ember-modal-structure";
+
+.ember-modal-overlay.translucent {
+  opacity: 0.77;
+  filter: alpha(opacity=15);
+  background-color: #808080;
+}
+
+// keep bootstrap styling
+.ember-modal-dialog {
+  @extend .modal-content;
+}
