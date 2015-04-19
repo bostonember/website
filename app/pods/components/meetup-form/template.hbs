@@ -1,26 +1,19 @@
 <form class="form" {{action 'saveMeetup' on='submit'}}>
   <div class="form-group">
-    <label>Date</label>
-    {{input type="date" value=meetup.date class="form-control"}}
+    <label>Time</label>
+    {{bs-datetimepicker date=meetup.date format='MM/DD/YYYY - h:mmA'}}
   </div>
 
   <h4>Presentations</h4>
   <div class="row">
     {{#each meetup.presentations as |presentation|}}
-      <div class="col-md-6">
-        <div class="form-group">
-          <label>Title</label>
-          {{input value=presentation.title class="form-control"}}
-        </div>
-        <div class="form-group">
-          <label>Body</label>
-          {{textarea value=presentation.title rows="10" class="form-control"}}
-        </div>
-      </div>
-
-      {{view 'select' content=speakers}}
+      {{presentation-form presentation=presentation speakers=speakers}}
     {{/each}}
   </div>
 
   {{! TODO: VENUE }}
+
+  <div class="form-group">
+    <input type="submit" value="Save" class="btn btn-default">
+  </div>
 </form>

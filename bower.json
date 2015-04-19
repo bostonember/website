@@ -14,7 +14,9 @@
     "qunit": "~1.17.1",
     "firebase": "^2.1.0",
     "ember-cli-moment-shim": "~0.1.0",
-    "bootstrap-sass": "~3.3.4"
+    "bootstrap-sass": "~3.3.4",
+    "selectize": "~0.12.1",
+    "eonasdan-bootstrap-datetimepicker": "~4.7.14"
   },
   "devDependencies": {
     "bootstrap-sass": "~3.3.4"

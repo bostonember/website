@@ -1,0 +1,22 @@
+<div class="col-md-6">
+  <div class="form-group">
+    <label>Title</label>
+    {{input value=presentation.title class="form-control"}}
+  </div>
+  <div class="form-group">
+    <label>Body</label>
+    {{textarea value=presentation.body rows="10" class="form-control"}}
+  </div>
+
+  <h4>Speaker</h4>
+  {{ember-selectize
+    content=speakers
+    optionValuePath="content.id"
+    optionLabelPath="content.fullName"
+    placeholder="Select a speaker"
+    select-item="setSpeaker"}}
+
+  <div class="form-group">
+    <button {{action 'addSpeaker'}} class="btn btn-default">Add Speaker</button>
+  </div>
+</div>
