@@ -34,11 +34,11 @@ export default Ember.Route.extend(AdminAuthenticatedRoute, {
 
       Ember.RSVP.all(speakersToSave).then(() => {
         return Ember.RSVP.all(presentationsToSave).then(() => {
-          meetup.save().then((meetup) => {
+          meetup.save().then(() => {
             this.transitionTo('admin.meetups');
           })
-          .catch((error) => {
-            debugger
+          .catch(() => {
+            alert('sorry. that failed');
           });
         });
       });
