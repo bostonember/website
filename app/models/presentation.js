@@ -13,5 +13,5 @@ export default DS.Model.extend({
 
   hasImage: Ember.computed.notEmpty('image'),
   hasSlidesLink: Ember.computed.notEmpty('slidesLink'),
-  hasVideoLink: Ember.computed.notEmpty('hasVideoLink')
+  hasVideoLink: Ember.computed.notEmpty('videoLink')
 });

@@ -1,6 +1,8 @@
 import Ember from 'ember';
 import AdminAuthenticatedRoute from 'boston-ember/mixins/admin-authenticated-route';
 
+var { moment } = window;
+
 export default Ember.Route.extend(AdminAuthenticatedRoute, {
   model() {
     var speakers = this._allPersistedSpeakers();
@@ -20,9 +22,7 @@ export default Ember.Route.extend(AdminAuthenticatedRoute, {
 
     if (isExiting && meetup.get('isNew')) {
       meetup.get('presentations').then((presentations) => {
-        presentations.forEach((presentation) => {
-          presentation.destroyRecord();
-        });
+        presentations.invoke('destroyRecord');
       });
 
       meetup.destroyRecord();
@@ -36,7 +36,7 @@ export default Ember.Route.extend(AdminAuthenticatedRoute, {
     */
     saveMeetup(meetup) {
       var presentations = meetup.get('presentations');
-      var actualDate = meetup.get('date').toDate();
+      var actualDate = moment(meetup.get('date')).toDate();
       meetup.set('date', actualDate);
 
       var speakersToSave = presentations.filterBy('speaker.isNew').map((presentation) => {

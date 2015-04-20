@@ -4,6 +4,7 @@ var { moment } = window;
 
 export default DS.Model.extend({
   date: DS.attr('date'),
+  title: DS.attr('string'),
   presentations: DS.hasMany('presentations', { async: true }),
 
   isUpcoming: Ember.computed('date', function() {
@@ -12,5 +13,4 @@ export default DS.Model.extend({
   }),
 
   isPast: Ember.computed.not('isUpcoming')
-
 });

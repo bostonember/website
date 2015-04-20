@@ -17,7 +17,7 @@
         <td>{{meetup.title}}</td>
         <td>
           {{#link-to 'admin.meetup.edit' meetup.id}}Edit{{/link-to}}
-          <a href="#" {{action deleteMeetup meetup}}>Delete</a>
+          <a href="#" {{action 'deleteMeetup' meetup}}>Delete</a>
         </td>
       </tr>
     {{/each}}
