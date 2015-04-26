@@ -4,16 +4,24 @@
     {{bs-datetimepicker date=meetup.date format='MM/DD/YYYY - h:mmA'}}
   </div>
 
-  <h4>Presentations</h4>
-  <div class="row">
-    {{#each meetup.presentations as |presentation|}}
-      {{presentation-form presentation=presentation speakers=speakers}}
-    {{/each}}
+  <div class="form-group">
+    <label>Title</label>
+    {{input value=meetup.title class="form-control"}}
+    <span id="helpBlock" class="help-block">Only fill this in if you need to override the generated meetup title.</span>
   </div>
+
+  {{#if edit-presentations}}
+    <h4>Presentations</h4>
+    <div class="row">
+      {{#each meetup.presentations as |presentation|}}
+        {{presentation-form presentation=presentation speakers=speakers}}
+      {{/each}}
+    </div>
+  {{/if}}
 
   {{! TODO: VENUE }}
 
   <div class="form-group">
-    <input type="submit" value="Save" class="btn btn-primary">
+    <input type="submit" value="Save" class="btn btn-primary"> <button class="btn btn-default" {{action 'cancelSave'}}>Cancel</button>
   </div>
 </form>

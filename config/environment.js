@@ -8,7 +8,8 @@ module.exports = function(environment) {
     contentSecurityPolicy: {
       'connect-src': "'self' wss://*.firebaseio.com https://auth.firebase.com",
       'style-src': "'self' http://fonts.googleapis.com",
-      'font-src': "'self' http://fonts.gstatic.com"
+      'font-src': "'self' http://fonts.gstatic.com",
+      'img-src': "'self' https://avatars.githubusercontent.com"
     },
     // TODO: ENV var
     firebase: 'https://bostonember.firebaseio.com/',

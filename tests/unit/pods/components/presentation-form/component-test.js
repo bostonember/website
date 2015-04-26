@@ -4,18 +4,17 @@ import {
 } from 'ember-qunit';
 
 moduleForComponent('presentation-form', {
-  // Specify the other units that are required for this test
-  // needs: ['component:foo', 'helper:bar']
 });
 
-test('it renders', function(assert) {
-  assert.expect(2);
+test('sets selectedSpeaker and selectedMeetup from presentation', function(assert) {
+  let presentation = {
+    speaker: { id: 1, name: 'dave' },
+    meetup: { id: 2, title: 'foo' }
+  };
 
-  // Creates the component instance
-  var component = this.subject();
-  assert.equal(component._state, 'preRender');
+  let component = this.subject({
+    presentation: presentation
+  });
 
-  // Renders the component to the page
-  this.render();
-  assert.equal(component._state, 'inDOM');
+  assert.equal(component.get('selectedMeetup'), presentation.meetup);
 });

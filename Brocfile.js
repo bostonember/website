@@ -12,8 +12,6 @@ var app = new EmberApp({
 });
 
 var extraAssets = new Funnel('bower_components/bootstrap-sass/assets/fonts', {
-  //srcDir: '/',
-  // include: ['**/*.woff', '**/stylesheet.css'],
   destDir: '/fonts'
  });
 

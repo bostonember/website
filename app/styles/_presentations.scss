@@ -1,0 +1,31 @@
+.next-meetup-presentations {
+  margin-bottom: 30px;
+
+  img {
+    max-width: 300px;
+    max-height: 300px;
+    height: auto;
+    margin-bottom: 20px;
+  }
+}
+
+.talk-list {
+  .meetup {
+    padding-bottom: 30px;
+    border-bottom: 1px solid #efefef;
+    margin-bottom: 50px;
+  }
+
+  h3 {
+    span, a {
+      display: inline-block;
+      vertical-align: middle;
+    }
+
+    .btn {
+      padding: 4px 12px;
+      font-size: 13px;
+      margin-left: 10px;
+    }
+  }
+}

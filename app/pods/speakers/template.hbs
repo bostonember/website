@@ -1,1 +1,8 @@
-{{outlet}}
+<div class="speakers">
+  {{#each model as |speaker|}}
+    <div class="speaker">
+      <img class="image img-rounded" src={{speaker.githubAvatarURL}}>
+      <div class="name">{{speaker.fullName}}</div>
+    </div>
+  {{/each}}
+</div>

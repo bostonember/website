@@ -4,8 +4,7 @@ import {
 } from 'ember-qunit';
 
 moduleForModel('presentation', {
-  // Specify the other units that are required for this test.
-  needs: []
+  needs: ['model:speaker', 'model:meetup']
 });
 
 test('it exists', function(assert) {

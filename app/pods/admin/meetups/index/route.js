@@ -10,6 +10,7 @@ export default Ember.Route.extend(AdminAuthenticatedRoute, {
     deleteMeetup(meetup) {
       if(confirm("Hope you're sure... there's no going back.")) {
         meetup.get('presentations').then((presentations) => {
+          // TODO: firebase might handle this automatically?
           var deletes = presentations.invoke('destroyRecord');
           Ember.RSVP.all(deletes).then(() => {
             meetup.destroyRecord();

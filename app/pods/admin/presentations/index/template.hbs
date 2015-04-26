@@ -1,0 +1,27 @@
+{{#link-to 'admin.presentations.new' tagName='button' classNames='btn btn-primary'}}Add New{{/link-to}}
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Title</th>
+      <th>Body</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    {{#each sortedMeetups as |meetup|}}
+      {{#each meetup.presentations as |talk|}}
+        <tr>
+          <td>{{talk.id}}</td>
+          <td>{{talk.title}}</td>
+          <td>{{talk.body}}</td>
+          <td>
+            {{#link-to 'admin.presentations.presentation.edit' talk.id}}Edit{{/link-to}}
+            <a href="#" {{action 'deleteMeetup' meetup}}>Delete</a>
+          </td>
+        </tr>
+      {{/each}}
+    {{/each}}
+  </tbody>
+</table>

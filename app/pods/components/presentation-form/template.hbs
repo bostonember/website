@@ -35,8 +35,8 @@
             {{input value=speaker.firstName class="form-control"}}
             <label>Last name</label>
             {{input value=speaker.lastName class="form-control"}}
-            <label>Email</label>
-            {{input type="email" value=speaker.email class="form-control"}}
+            <label>GitHub</label>
+            {{input value=speaker.github class="form-control"}}
           </div>
 
           <div class="modal-footer">
@@ -46,5 +46,18 @@
         </form>
       {{/with}}
     {{/modal-dialog}}
+  {{/if}}
+
+  {{#if useMeetupSelector}}
+    <h4>Meetup</h4>
+
+    {{ember-selectize
+      content=meetups
+      optionValuePath="content.id"
+      optionLabelPath="content.date"
+      placeholder="Select a meetup"
+      selection=selectedMeetup
+      select-item="setMeetup"
+    }}
   {{/if}}
 </div>

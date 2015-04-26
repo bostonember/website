@@ -6,6 +6,7 @@ export default DS.Model.extend({
   date: DS.attr('date'),
   title: DS.attr('string'),
   presentations: DS.hasMany('presentations', { async: true }),
+  url: DS.attr('string'),
 
   isUpcoming: Ember.computed('date', function() {
     var date = this.get('date');

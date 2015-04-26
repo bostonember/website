@@ -1,12 +1,12 @@
 import Ember from 'ember';
 import AdminAuthenticatedRoute from 'boston-ember/mixins/admin-authenticated-route';
-
+import SaveMeetupRoute from 'boston-ember/mixins/save-meetup';
 var { moment } = window;
 
-export default Ember.Route.extend(AdminAuthenticatedRoute, {
+export default Ember.Route.extend(AdminAuthenticatedRoute, SaveMeetupRoute, {
   model() {
-    var speakers = this._allPersistedSpeakers();
-    var newMeetup = this._newMeetupWithPresentationsAndSpeakers();
+    let speakers = this._allPersistedSpeakers();
+    let newMeetup = this._newMeetupWithPresentationsAndSpeakers();
 
     return Ember.RSVP.hash({
       meetup: newMeetup,
@@ -15,48 +15,22 @@ export default Ember.Route.extend(AdminAuthenticatedRoute, {
   },
 
   /**
-    When this route exits, delete any newly created meetup/presentation records.
+    Delete any newly created meetup/presentation records on route exit.
   */
   resetController(controller, isExiting) {
-    var meetup = controller.get('model.meetup');
+    let meetup = controller.get('model.meetup');
 
-    if (isExiting && meetup.get('isNew')) {
-      meetup.get('presentations').then((presentations) => {
-        presentations.invoke('destroyRecord');
-      });
-
-      meetup.destroyRecord();
+    if (isExiting) {
+      cleanupUnsavedMeetup(meetup);
     }
   },
 
   actions: {
+    cancelSave() {
+      let meetup = this.controller.get('model.meetup');
 
-    /**
-      Saves a Meetup along with child presentation and speaker records.
-    */
-    saveMeetup(meetup) {
-      var presentations = meetup.get('presentations');
-      var actualDate = moment(meetup.get('date')).toDate();
-      meetup.set('date', actualDate);
-
-      var speakersToSave = presentations.filterBy('speaker.isNew').map((presentation) => {
-        return presentation.get('speaker').save();
-      });
-
-      var presentationsToSave = presentations.map((presentation) => {
-        return presentation.save();
-      });
-
-      Ember.RSVP.all(speakersToSave).then(() => {
-        return Ember.RSVP.all(presentationsToSave).then(() => {
-          meetup.save().then(() => {
-            this.transitionTo('admin.meetups');
-          })
-          .catch(() => {
-            alert('sorry. that failed');
-          });
-        });
-      });
+      cleanupUnsavedMeetup(meetup);
+      this.transitionTo('admin.meetups');
     }
   },
 
@@ -75,11 +49,13 @@ export default Ember.Route.extend(AdminAuthenticatedRoute, {
     Creates a new Meetup record with new presentations and speakers.
   */
   _newMeetupWithPresentationsAndSpeakers() {
-    var newMeetup = this.store.createRecord('meetup', { date: new Date()});
+    // TODO: day(4) resets the moment, how to get following thursday + 1 week?
+    let startDate = moment().endOf('month').add(1, 'day').hours(18).minutes(30).seconds(0);
+    let newMeetup = this.store.createRecord('meetup', { date: startDate.toDate() });
 
-    var newSpeaker1 = this.store.createRecord('speaker');
-    var newSpeaker2 = this.store.createRecord('speaker');
-    var presentations = [
+    let newSpeaker1 = this.store.createRecord('speaker');
+    let newSpeaker2 = this.store.createRecord('speaker');
+    let presentations = [
       this.store.createRecord('presentation', { speaker: newSpeaker1 }),
       this.store.createRecord('presentation', { speaker: newSpeaker2 })
     ];
@@ -89,3 +65,15 @@ export default Ember.Route.extend(AdminAuthenticatedRoute, {
     return newMeetup;
   }
 });
+
+var cleanupUnsavedMeetup = function(meetup) {
+  if(Ember.isEmpty(meetup)) { return; }
+
+  if (meetup.get('isNew')) {
+    meetup.get('presentations').then((presentations) => {
+      presentations.invoke('destroyRecord');
+    });
+
+    meetup.destroyRecord();
+  }
+};

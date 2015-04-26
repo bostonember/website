@@ -1,18 +1,15 @@
 import Ember from 'ember';
 
+let { on } = Ember;
+
 export default Ember.Component.extend({
   isAddingSpeaker: false,
-  selectedSpeaker: null,
+  useMeetupSelector: false,
 
-  init() {
-    this._super.apply(this, arguments);
-
-    this.get('presentation.speaker').then((speaker) => {
-      if (speaker && !speaker.get('isNew')) {
-        this.set('selectedSpeaker', speaker);
-      }
-    });
-  },
+  setup: on('init', function() {
+    this.set('selectedSpeaker', this.get('presentation.speaker'));
+    this.set('selectedMeetup', this.get('presentation.meetup'));
+  }),
 
   actions: {
     addSpeaker(speaker) {

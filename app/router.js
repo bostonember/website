@@ -8,22 +8,27 @@ var Router = Ember.Router.extend({
 export default Router.map(function() {
   this.route('workshops');
   this.route('speakers');
-  this.route('talks', function() {});
+  this.route('presentations', { path: 'talks' }, function() {});
 
-  this.route('talk', function() {
+  this.route('presentation', function() {
     this.route('new');
   });
+
+  // admin routes
 
   this.route('admin', function() {
     this.route('login');
 
     this.route('meetups', function() {
       this.route('new');
+      this.route('meetup.edit', { path: ':meetup_id/edit' });
     });
 
-    this.route('meetup', { path: 'meetups/:meetup_id' }, function() {
-      this.route('edit');
+    this.route('presentations', { path: 'talks' }, function() {
+      this.route('new');
+      this.route('presentation.edit', { path: ':presentation_id/edit' });
     });
+
   });
 
 });

@@ -2,6 +2,7 @@ import Ember from 'ember';
 
 export default Ember.Component.extend({
   classNames: ['next-meetup'],
+  hasNextMeetup: Ember.computed.notEmpty('meetup'),
 
   meetupTitle: Ember.computed('meetup.presentations.@each.isLoaded', function() {
     var presentations = this.get('meetup.presentations');

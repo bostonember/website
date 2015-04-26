@@ -1,0 +1,22 @@
+{{#each sortedMeetups as |meetup|}}
+  <div class="meetup">
+    <h3>
+      <span>
+        {{moment meetup.date 'MMMM Do, YYYY'}}
+        {{#if meetup.title}}
+         - {{meetup.title}}
+        {{/if}}
+      </span>
+
+      {{#if meetup.isUpcoming}}
+        <a href="{{meetup.url}}" target="_blank" class="btn btn-primary">Join Us</a>
+      {{/if}}
+    </h3>
+
+    {{#each meetup.presentations as |presentation|}}
+      <h4>{{presentation.title}} by {{presentation.speaker.fullName}}</h4>
+      <p>{{presentation.body}}</p>
+    {{/each}}
+  </div>
+
+{{/each}}
