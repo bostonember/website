@@ -4,12 +4,20 @@ export default Ember.Component.extend({
   classNames: ['next-meetup'],
   hasNextMeetup: Ember.computed.notEmpty('meetup'),
 
-  meetupTitle: Ember.computed('meetup.presentations.@each.isLoaded', function() {
-    var presentations = this.get('meetup.presentations');
+  lightningTalks: Ember.computed.filterBy('meetup.presentations', 'isLightningTalk'),
+  hasLightningTalks: Ember.computed.notEmpty('lightningTalks'),
+
+  fullLengthTalks: Ember.computed('lightningTalks', function() {
+    return this.get('meetup.presentations').rejectBy('isLightningTalk', true);
+  }),
+
+  meetupTitle: Ember.computed('fullLengthTalks', function() {
+    var presentations = this.get('fullLengthTalks');
     var title = this.getWithDefault('meetup.title', meetupTitleFromPresentations(presentations));
 
     return title;
   })
+
 });
 
 function meetupTitleFromPresentations(presentations) {

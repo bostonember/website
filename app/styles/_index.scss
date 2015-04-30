@@ -1,5 +1,7 @@
 .tomster {
   img {
+    max-height: 300px;
+    margin-bottom: 20px;
   }
 }
 
@@ -22,7 +24,7 @@
   }
 
   .meetup-date {
-    color: $orange;
+    color: $green;
     font-size: 26px;
     margin: 24px 0;
   }

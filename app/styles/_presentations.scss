@@ -1,11 +1,54 @@
 .next-meetup-presentations {
-  margin-bottom: 30px;
+  margin: 30px 0;
 
   img {
-    max-width: 300px;
-    max-height: 300px;
+    max-width: 200px;
+    max-height: 200px;
     height: auto;
     margin-bottom: 20px;
+  }
+
+  .title, .by-line {
+    text-align: left;
+  }
+
+  .title {
+    margin: 0;
+    font-size: 1.1em;
+    font-weight: 700;
+  }
+
+  .body {
+    text-align: justify;
+  }
+
+  .presentation {
+    margin-bottom: 24px;
+  }
+}
+
+.lightning-talks {
+  margin: 30px 0;
+
+  .presentation {
+    display: inline-block;
+    width: 300px;
+    margin: 0 20px;
+  }
+
+  .title {
+    margin: 0;
+    font-weight: 700;
+    font-size: 0.9em;
+    overflow-x: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  img {
+    max-width: 100px;
+    max-height: 100px;
+    height: auto;
   }
 }
 

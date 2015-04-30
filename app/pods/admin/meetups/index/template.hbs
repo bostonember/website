@@ -3,18 +3,18 @@
 <table class="table">
   <thead>
     <tr>
-      <th>ID</th>
       <th>Date</th>
       <th>Title</th>
+      <th># of Talks</th>
       <th></th>
     </tr>
   </thead>
   <tbody>
     {{#each sortedMeetups as |meetup|}}
       <tr>
-        <td>{{meetup.id}}</td>
         <td>{{moment meetup.date 'MM/DD/YY'}}</td>
-        <td>{{meetup.title}}</td>
+        <td>{{meetup.titleForDisplay}}</td>
+        <td>{{meetup.presentations.length}}</td>
         <td>
           {{#link-to 'admin.meetups.meetup.edit' meetup.id}}Edit{{/link-to}}
           <a href="#" {{action 'deleteMeetup' meetup}}>Delete</a>

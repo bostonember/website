@@ -4,8 +4,7 @@ import AdminAuthenticatedRoute from 'boston-ember/mixins/admin-authenticated-rou
 export default Ember.Route.extend(AdminAuthenticatedRoute, {
   model() {
     return Ember.RSVP.hash({
-      meetups: this.store.findAll('meetup'),
-      presentations: this.store.findAll('presentation')
+      meetups: this.store.findAll('meetup')
     });
   }
 });

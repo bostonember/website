@@ -7,6 +7,7 @@ export default DS.Model.extend({
   slidesLink: DS.attr('string'),
   videoLink: DS.attr('string'),
   image: DS.attr('string'),
+  isLightningTalk: DS.attr('boolean'),
 
   speaker: DS.belongsTo('speaker', { async: true }),
   meetup: DS.belongsTo('meetup', { async: true }),

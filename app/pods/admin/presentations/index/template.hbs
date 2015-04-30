@@ -4,8 +4,10 @@
   <thead>
     <tr>
       <th>ID</th>
+      <th>Date</th>
       <th>Title</th>
       <th>Body</th>
+      <th>Lightning?</th>
       <th></th>
     </tr>
   </thead>
@@ -14,8 +16,15 @@
       {{#each meetup.presentations as |talk|}}
         <tr>
           <td>{{talk.id}}</td>
+          <td>{{moment talk.meetup.date 'MM/DD/YYYY'}}</td>
           <td>{{talk.title}}</td>
           <td>{{talk.body}}</td>
+          <td>
+            {{#if talk.isLightningTalk}}
+              {{! this is an admin page, assume we all have a mac }}
+              ⚡️
+            {{/if}}
+          </td>
           <td>
             {{#link-to 'admin.presentations.presentation.edit' talk.id}}Edit{{/link-to}}
             <a href="#" {{action 'deleteMeetup' meetup}}>Delete</a>

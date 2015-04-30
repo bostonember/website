@@ -7,12 +7,16 @@ body {
   font-weight: $body-font-weight;
   border-top: 20px solid $brand-primary;
   border-bottom: 20px solid $brand-primary;
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
 }
 
 #main {
   padding-top: 40px;
   padding-bottom: 40px;
   text-align: center;
+  flex: 1;
 }
 
 .content {
@@ -29,18 +33,13 @@ body {
 
   a {
     color: #333;
-    font-size: 1.1em;
+    font-size: 1em;
+    color: $green;
   }
 }
 
 .nav-tabs {
   font-size: 14px;
-}
-
-#logo {
-  position: absolute;
-  top: 28px;
-  left: 10px;
 }
 
 .tab-content {

@@ -1,20 +1,24 @@
 <div id="wrapper">
-  {{#link-to 'index' id='logo'}}
-    <img src="/assets/images/logo.png">
-  {{/link-to}}
 
   <div id="main" class="container {{pageClass}}">
     <ul class="nav nav-pills">
-      {{#link-to 'presentations' tagName="li"}}
+      {{#link-to 'index' tagName='li'}}
+        <a href="#">Home</a>
+      {{/link-to}}
+
+      {{#link-to 'presentations' tagName='li'}}
         <a href="#">Talks</a>
       {{/link-to}}
-      {{#link-to 'workshops' tagName="li"}}
+
+      {{#link-to 'workshops' tagName='li'}}
         <a href="#">Workshops</a>
       {{/link-to}}
-      {{#link-to 'speakers' tagName="li"}}
+
+      {{#link-to 'speakers' tagName='li'}}
         <a href="#">Speakers</a>
       {{/link-to}}
-      {{#link-to 'presentation.new' tagName="li"}}
+
+      {{#link-to 'presentation.new' tagName='li'}}
         <a href="#">Submit a Talk</a>
       {{/link-to}}
     </ul>
