@@ -5,6 +5,11 @@
   }
 }
 
+.slack {
+  text-align: center;
+  margin: 20px;
+}
+
 .next-meetup {
   .info-block {
     border-bottom: 1px solid $peach;
@@ -27,5 +32,24 @@
     color: $green;
     font-size: 26px;
     margin: 24px 0;
+  }
+}
+
+.past-meetup-link {
+  font-size: 1.2em;
+}
+
+.homepage-action {
+  margin-bottom: 80px;
+  text-align: center;
+
+  button {
+    margin-top: 12px;
+    background: #E95630;
+    text-transform: uppercase;
+    font-size: 0.9em;
+    font-weight: 700;
+    border-radius: 2px;
+    border-color: transparent;
   }
 }

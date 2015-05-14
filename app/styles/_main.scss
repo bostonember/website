@@ -29,12 +29,21 @@ body {
 
 .nav-pills {
   display: inline-block;
-  margin-bottom: 24px;
+  margin-bottom: 32px;
 
   a {
     color: #333;
     font-size: 1em;
     color: $green;
+  }
+
+  .logo {
+    padding: 0;
+    margin-right: 42px;
+
+    img {
+      height: 42px;
+    }
   }
 }
 
@@ -52,8 +61,32 @@ body {
 
 .icon-title {
   font-size: 1.2em;
-  
+
   .fa {
     margin-right: 4px;
+  }
+}
+
+#announcement {
+  .next-workshop {
+    background: #333;
+    padding: 40px;
+    color: #fff;
+    text-align: center;
+    margin: 20px 0 60px 0;
+
+    p {
+      font-size: 20px;
+    }
+
+    .note {
+      margin: 40px 0 0;
+      font-size: 14px;
+      opacity: 0.25;
+    }
+  }
+
+  h3 {
+    margin-top: 0;
   }
 }

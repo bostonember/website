@@ -3,7 +3,7 @@
   <div id="main" class="container {{pageClass}}">
     <ul class="nav nav-pills">
       {{#link-to 'index' tagName='li'}}
-        <a href="#">Home</a>
+        <a href="#" class="logo"><img src="/assets/images/logo.png" alt="Boston Ember"></a>
       {{/link-to}}
 
       {{#link-to 'presentations' tagName='li'}}
@@ -27,4 +27,6 @@
       {{outlet}}
     </div>
   </div>
+
+  <div id="announcement"></div>
 </div>
