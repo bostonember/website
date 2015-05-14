@@ -1,6 +1,9 @@
 @import 'variables';
 @import 'bootstrap';
 
+$fa-font-path: '../fonts';
+@import 'font-awesome';
+
 @import 'main';
 @import 'index';
 @import 'admin';

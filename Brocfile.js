@@ -6,14 +6,19 @@ var Funnel = require('broccoli-funnel');
 var app = new EmberApp({
   sassOptions: {
     includePaths: [
-      'bower_components/bootstrap-sass/assets/stylesheets'
+      'bower_components/bootstrap-sass/assets/stylesheets',
+      'bower_components/font-awesome/scss'
     ]
   }
 });
 
-var extraAssets = new Funnel('bower_components/bootstrap-sass/assets/fonts', {
+var bootstrapFonts = new Funnel('bower_components/bootstrap-sass/assets/fonts', {
   destDir: '/fonts'
- });
+});
+
+var fontAwesomeFonts = new Funnel('bower_components/font-awesome/fonts', {
+  destDir: '/fonts'
+});
 
 // Use `app.import` to add additional libraries to the generated
 // output files.
@@ -29,4 +34,4 @@ var extraAssets = new Funnel('bower_components/bootstrap-sass/assets/fonts', {
 // along with the exports of each module as its value.
 
 
-module.exports = app.toTree(extraAssets);
+module.exports = app.toTree([bootstrapFonts, fontAwesomeFonts]);
