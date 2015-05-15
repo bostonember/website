@@ -1,7 +1,7 @@
 import Ember from 'ember';
 
 /**
-  Handles submission of form data to an endpoint.
+  Handles submission of a simple form object to an endpoint.
 
   Right now, we use FormKeep.
 */
@@ -13,17 +13,25 @@ export default Ember.Service.extend({
       return;
     }
 
-    let endpoint = this.get('endpoint');
-    let pojo = {};
-    Ember.keys(object).forEach((key) => {
-      pojo[key] = object[key];
-    });
-
     return Ember.$.ajax({
       type: 'POST',
-      url: endpoint,
+      url: this.get('endpoint'),
       accepts: 'application/javascript',
-      data: pojo
+      data: formObjectFromObject(object)
     });
   }
 });
+
+/**
+  Creates a form object from a regular object.
+
+  Uses Ember.keys to only add ownProperties.
+*/
+function formObjectFromObject(object) {
+  let formObject = {};
+  Ember.keys(object).forEach((key) => {
+    formObject[key] = object[key];
+  });
+
+  return formObject;
+}

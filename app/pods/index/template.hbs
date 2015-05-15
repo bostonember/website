@@ -49,9 +49,3 @@
     {{suggest-topic-form isPending=isPending on-cancel='dismissTopicModal' on-submit='submitTopic'}}
   {{/modal-dialog}}
 {{/if}}
-
-{{#if isAddingTalk}}
-  {{#modal-dialog alignment='center' translucentOverlay=true classNames='modal-content'}}
-    {{submit-talk-form isPending=isPending on-cancel='dismissTalkModal' on-submit='submitTalk'}}
-  {{/modal-dialog}}
-{{/if}}

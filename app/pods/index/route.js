@@ -28,6 +28,7 @@ export default Ember.Route.extend({
 
   actions: {
     submitTopic(topic) {
+      topic.formName = 'suggestTopic';
       let submission = this.get('simpleFormSubmitter').submit(topic);
 
       submission.then(() => {
@@ -35,6 +36,6 @@ export default Ember.Route.extend({
         this.controller.send('dismissTopicModal');
       });
     }
-    
+
   }
 });

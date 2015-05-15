@@ -9,6 +9,7 @@ export default Ember.Route.extend({
     },
 
     submitTalk(talk) {
+      talk.formName = 'submitTalk';
       let submission = this.get('simpleFormSubmitter').submit(talk);
 
       submission.then(() => {

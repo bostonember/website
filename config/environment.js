@@ -9,7 +9,9 @@ module.exports = function(environment) {
       'connect-src': "'self' wss://*.firebaseio.com https://auth.firebase.com",
       'style-src': "'self' http://fonts.googleapis.com",
       'font-src': "'self' http://fonts.gstatic.com",
-      'img-src': "'self' https://avatars.githubusercontent.com"
+      'img-src': "'self' https://github.com https://avatars.githubusercontent.com",
+      'script-src': "'self' http://slack.bostonember.com",
+      'frame-src': "'self' http://slack.bostonember.com"
     },
     // TODO: ENV var
     firebase: 'https://bostonember.firebaseio.com/',
