@@ -2,10 +2,11 @@ import Ember from 'ember';
 import nextMeetupFromMeetups from 'boston-ember/utils/next-meetup-from-meetups';
 
 export default Ember.Route.extend({
+  simpleFormSubmitter: Ember.inject.service(),
+
   model() {
     return this.store.findQuery('meetup', {
       orderBy: 'date',
-      //equalTo: moment('2015-05-14 6:30PM', 'YYYY-MM-DD h:mmA').toISOString(),
       limitToLast: 5
     }).then((meetups) => {
       return {
@@ -21,6 +22,26 @@ export default Ember.Route.extend({
       return model.nextMeetup.get('presentations').then((presentations) => {
         var speakers = presentations.mapBy('speaker');
         return Ember.RSVP.all(speakers);
+      });
+    }
+  },
+
+  actions: {
+    submitTopic(topic) {
+      let submission = this.get('simpleFormSubmitter').submit(topic);
+
+      submission.then(() => {
+        // TODO: flash message
+        this.controller.send('dismissTopicModal');
+      })
+    },
+
+    submitTalk(talk) {
+      let submission = this.get('simpleFormSubmitter').submit(talk);
+
+      submission.then(() => {
+        // TODO: flash message
+        this.controller.send('dismissTalkModal');
       });
     }
   }

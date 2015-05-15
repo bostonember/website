@@ -29,7 +29,7 @@
   }
 
   .meetup-date {
-    color: $green;
+    color: $orange;
     font-size: 26px;
     margin: 24px 0;
   }
@@ -45,11 +45,16 @@
 
   button {
     margin-top: 12px;
-    background: #E95630;
+    background: $orange;
     text-transform: uppercase;
     font-size: 0.9em;
     font-weight: 700;
     border-radius: 2px;
     border-color: transparent;
   }
+}
+
+textarea.large {
+  height: 200px;
+  width: 300px;
 }

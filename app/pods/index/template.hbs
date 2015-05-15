@@ -26,7 +26,7 @@
         <h3>Is there a topic you'd like to see?</h3>
         <p>If there are specific topics you’d like to see covered in a talk or workshop, we want to hear your ideas! Otherwise, we just have to guess.</p>
 
-        <button class="btn btn-primary btn-lg">Let us Know</button>
+        <button class="btn btn-primary btn-lg" {{action 'suggestTopic'}}>Let us Know</button>
       </div>
     </div>
 
@@ -38,8 +38,20 @@
         </p>
         <p>Talks are generally 30 minutes, but if you want to show off a cool library you’ve built or worked with recently, we try to have a few lightning talks each month.</p>
 
-        <button class="btn btn-primary btn-lg">Submit a talk</button>
+        <button class="btn btn-primary btn-lg" {{action 'addTalk'}}>Submit a talk</button>
       </div>
     </div>
   </div>
 {{/ember-wormhole}}
+
+{{#if isSuggestingTopic}}
+  {{#modal-dialog alignment='center' translucentOverlay=true classNames='modal-content'}}
+    {{suggest-topic-form isPending=isPending on-cancel='dismissTopicModal' on-submit='submitTopic'}}
+  {{/modal-dialog}}
+{{/if}}
+
+{{#if isAddingTalk}}
+  {{#modal-dialog alignment='center' translucentOverlay=true classNames='modal-content'}}
+    {{submit-talk-form isPending=isPending on-cancel='dismissTalkModal' on-submit='submitTalk'}}
+  {{/modal-dialog}}
+{{/if}}
