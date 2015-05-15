@@ -11,7 +11,7 @@
 
   <h4 class="icon-title"><i class="fa fa-microphone"></i> Featured Talks</h4>
   <div class="next-meetup-presentations">
-    {{#each fullLengthTalks as |p|}}
+    {{#each meetup.fullLengthTalks as |p|}}
       <div class="row presentation">
         {{! TODO presentation component}}
         <div class="col-md-3 col-md-offset-1">
@@ -30,11 +30,11 @@
     {{/each}}
   </div>
 
-  {{#if hasLightningTalks}}
+  {{#if meetup.hasLightningTalks}}
     <h4 class="icon-title"><i class="fa fa-bolt"></i> Lightning Talks</h4>
 
     <div class="lightning-talks">
-      {{#each lightningTalks as |p|}}
+      {{#each meetup.lightningTalks as |p|}}
         <div class="presentation">
           {{! TODO: presentation-image which handles both}}
           {{#if p.hasImage}}

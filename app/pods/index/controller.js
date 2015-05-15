@@ -2,7 +2,6 @@ import Ember from 'ember';
 
 export default Ember.Controller.extend({
   isSuggestingTopic: false,
-  isAddingTalk: false,
 
   actions: {
     suggestTopic() {
@@ -11,14 +10,6 @@ export default Ember.Controller.extend({
 
     dismissTopicModal() {
       this.set('isSuggestingTopic', false);
-    },
-
-    addTalk() {
-      this.set('isAddingTalk', true);
-    },
-
-    dismissTalkModal() {
-      this.set('isAddingTalk', false);
     }
   }
 });

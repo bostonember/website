@@ -11,5 +11,17 @@ export default Ember.Controller.extend({
     });
 
     return parts.join(' ');
-  })
+  }),
+
+  isAddingTalk: false,
+
+  actions: {
+    addTalk() {
+      this.set('isAddingTalk', true);
+    },
+
+    dismissTalkModal() {
+      this.set('isAddingTalk', false);
+    }
+  }
 });

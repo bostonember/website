@@ -18,9 +18,9 @@
         <a href="#">Speakers</a>
       {{/link-to}}
 
-      {{#link-to 'presentation.new' tagName='li'}}
-        <a href="#">Submit a Talk</a>
-      {{/link-to}}
+      <li>
+        <a href="#" {{action 'addTalk'}}>Submit a Talk</a>
+      </li>
     </ul>
 
     <div class="content">
@@ -30,3 +30,9 @@
 
   <div id="announcement"></div>
 </div>
+
+{{#if isAddingTalk}}
+  {{#modal-dialog alignment='center' translucentOverlay=true classNames='modal-content'}}
+    {{submit-talk-form isPending=isPending on-cancel='dismissTalkModal' on-submit='submitTalk'}}
+  {{/modal-dialog}}
+{{/if}}

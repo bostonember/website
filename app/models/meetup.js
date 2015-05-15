@@ -21,6 +21,13 @@ export default DS.Model.extend({
 
   isPast: computed.not('isUpcoming'),
 
+  lightningTalks: Ember.computed.filterBy('presentations', 'isLightningTalk'),
+  hasLightningTalks: Ember.computed.notEmpty('lightningTalks'),
+
+  fullLengthTalks: Ember.computed('presentations', function() {
+    return this.get('presentations').rejectBy('isLightningTalk', true);
+  }),
+
   /**
     Returns a title for display. Defaults to title on the meetup, but if not
     provided, creates a title from the presentation titles & speaker names.

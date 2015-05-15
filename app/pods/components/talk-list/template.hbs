@@ -13,7 +13,7 @@
       {{/if}}
     </h3>
 
-    {{#each meetup.presentations as |presentation|}}
+    {{#each meetup.fullLengthTalks as |presentation|}}
       <h4>{{presentation.title}} by {{presentation.speaker.fullName}}</h4>
       <p>{{presentation.body}}</p>
     {{/each}}

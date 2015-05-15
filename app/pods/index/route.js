@@ -33,16 +33,8 @@ export default Ember.Route.extend({
       submission.then(() => {
         // TODO: flash message
         this.controller.send('dismissTopicModal');
-      })
-    },
-
-    submitTalk(talk) {
-      let submission = this.get('simpleFormSubmitter').submit(talk);
-
-      submission.then(() => {
-        // TODO: flash message
-        this.controller.send('dismissTalkModal');
       });
     }
+    
   }
 });
