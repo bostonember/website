@@ -1,0 +1,12 @@
+<h3>
+  <span>
+    {{moment event.date 'MMMM Do, YYYY'}}
+    {{#if event.title}}
+    - {{event.title}}
+    {{/if}}
+  </span>
+
+  {{#if event.isUpcoming}}
+  <a href="{{event.url}}" target="_blank" class="btn btn-primary">Join Us</a>
+  {{/if}}
+</h3>

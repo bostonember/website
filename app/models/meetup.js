@@ -1,25 +1,15 @@
 import Ember from 'ember';
 import DS from 'ember-data';
+import isUpcoming from 'boston-ember/mixins/is-upcoming';
 
-let { moment } = window;
 let { attr, hasMany } = DS;
 let { computed } = Ember;
 
-export default DS.Model.extend({
+export default DS.Model.extend(isUpcoming, {
   date: attr('date'),
   title: attr('string'),
   presentations: hasMany('presentations', { async: true }),
   url: attr('string'),
-
-  /**
-    Returns true if the meetup date is today or in the future.
-  */
-  isUpcoming: computed('date', function() {
-    let date = this.get('date');
-    return moment(date).startOf('day') >= moment().startOf('day');
-  }),
-
-  isPast: computed.not('isUpcoming'),
 
   lightningTalks: Ember.computed.filterBy('presentations', 'isLightningTalk'),
   hasLightningTalks: Ember.computed.notEmpty('lightningTalks'),

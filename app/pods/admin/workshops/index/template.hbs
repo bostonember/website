@@ -1,0 +1,27 @@
+{{#link-to 'admin.workshops.new' tagName='button' classNames='btn btn-primary'}}Add New{{/link-to}}
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Date</th>
+      <th>Title</th>
+      <th>Description</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    {{#each sortedWorkshops as |workshop|}}
+      <tr>
+        <td>{{workshop.id}}</td>
+        <td>{{moment workshop.date 'MM/DD/YYYY'}}</td>
+        <td>{{workshop.title}}</td>
+        <td>{{workshop.description}}</td>
+        <td>
+          {{#link-to 'admin.workshops.workshop.edit' workshop.id}}Edit{{/link-to}}
+          <a href="#" {{action 'deleteWorkshop' workshop}}>Delete</a>
+        </td>
+      </tr>
+    {{/each}}
+  </tbody>
+</table>

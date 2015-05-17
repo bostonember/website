@@ -27,9 +27,6 @@ export default Ember.Route.extend(AdminAuthenticatedRoute, SaveMeetupRoute, {
 
   actions: {
     cancelSave() {
-      let meetup = this.controller.get('model.meetup');
-
-      cleanupUnsavedMeetup(meetup);
       this.transitionTo('admin.meetups');
     }
   },

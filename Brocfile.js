@@ -20,6 +20,9 @@ var fontAwesomeFonts = new Funnel('bower_components/font-awesome/fonts', {
   destDir: '/fonts'
 });
 
+app.import('bower_components/showdown/compressed/showdown.min.js');
+
+
 // Use `app.import` to add additional libraries to the generated
 // output files.
 //

@@ -17,7 +17,7 @@ export default Ember.Route.extend({
     let presentation = controller.get('model.presentation');
 
     if (isExiting && presentation.get('isNew')) {
-      controller.get('model.presentation').destroyRecord();
+      presentation.destroyRecord();
     }
   },
 

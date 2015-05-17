@@ -17,7 +17,8 @@
     "bootstrap-sass": "~3.3.4",
     "selectize": "~0.12.1",
     "eonasdan-bootstrap-datetimepicker": "~4.7.14",
-    "font-awesome": "~4.3.0"
+    "font-awesome": "~4.3.0",
+    "showdown": "~0.5.1"
   },
   "devDependencies": {
     "bootstrap-sass": "~3.3.4"

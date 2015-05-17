@@ -26,9 +26,18 @@ export default Router.map(function() {
 
     this.route('presentations', { path: 'talks' }, function() {
       this.route('new');
-      this.route('presentation.edit', { path: ':presentation_id/edit' });
+      this.route('presentation', { path: ':presentation_id' }, function() {
+        this.route('edit');
+      });
     });
 
+    this.route('workshops', function() {
+      this.route('new');
+
+      this.route('workshop', { path: ':workshop_id' }, function() {
+        this.route('edit');
+      });
+    });
   });
 
 });
