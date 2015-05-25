@@ -11,10 +11,10 @@ module('Integration - About Page', {
   }
 });
 
-test('Should welcome me to Boston Ember', function() {
-  visit('/').then(function() {
-    click("a:contains('About')").then(function() {
-      equal(find('h3').text(), 'About');
+test('Should navigate to About page', function(assert){
+  visit('/').then(function(){
+    click("a:contains('About')").then(function(){
+      assert.equal(find('h3').text(), 'About');
     });
   });
 });
