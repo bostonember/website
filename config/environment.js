@@ -10,8 +10,8 @@ module.exports = function(environment) {
       'style-src': "'self' http://fonts.googleapis.com",
       'font-src': "'self' http://fonts.gstatic.com",
       'img-src': "'self' https://github.com https://avatars.githubusercontent.com",
-      'script-src': "'self' http://slack.bostonember.com",
-      'frame-src': "'self' http://slack.bostonember.com"
+      'script-src': "'self' https://ember-community-slackin.herokuapp.com",
+      'frame-src': "'self' https://ember-community-slackin.herokuapp.com"
     },
     // TODO: ENV var
     firebase: 'https://bostonember.firebaseio.com/',

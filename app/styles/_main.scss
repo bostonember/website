@@ -68,25 +68,21 @@ body {
 }
 
 #announcement {
-  .next-workshop {
-    background: #333;
-    padding: 40px;
-    color: #fff;
-    text-align: center;
-    margin: 20px 0 60px 0;
-
-    p {
-      font-size: 20px;
-    }
-
-    .note {
-      margin: 40px 0 0;
-      font-size: 14px;
-      opacity: 0.25;
-    }
-  }
-
   h3 {
     margin-top: 0;
+  }
+}
+
+button, .btn {
+  border: 1px solid $text-color;
+  color: $text-color;
+  padding-left: 1em;
+  padding-right: 1em;
+  background: none;
+  text-transform: uppercase;
+
+  &.white {
+    border: 1px solid white;
+    color: white;
   }
 }

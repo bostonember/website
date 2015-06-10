@@ -3,22 +3,18 @@
 </div>
 
 <div class="slack">
-  <script async defer src="http://slack.bostonember.com/slackin.js?large"></script>
+  <h5>Join us in <a href="https://embercommunity.slack.com/messages/boston">#boston</a> on the Ember Community Slack!</h5>
+  <script async defer src="https://ember-community-slackin.herokuapp.com/slackin.js?large"></script>
 </div>
 
-{{next-meetup meetup=model.nextMeetup}}
+{{next-meetup meetup=nextMeetup}}
 
 <div class="past-meetup-link">
   {{#link-to 'presentations'}}view past meetups{{/link-to}}
 </div>
 
 {{#ember-wormhole to='announcement'}}
-  <div class="next-workshop">
-    <h3>Next Worshop*</h3>
-    <p>Nothing scheduled. We're working on it!</p>
-
-    <p class="note">*Workshop space is limited. See the meetup page for full details.</p>
-  </div>
+  {{next-workshop workshop=nextWorkshop}}
 
   <div class="container">
     <div class="row">
@@ -26,7 +22,7 @@
         <h3>Is there a topic you'd like to see?</h3>
         <p>If there are specific topics you’d like to see covered in a talk or workshop, we want to hear your ideas! Otherwise, we just have to guess.</p>
 
-        <button class="btn btn-primary btn-lg" {{action 'suggestTopic'}}>Let us Know</button>
+        <button class="btn btn-lg" {{action 'suggestTopic'}}>Let us Know</button>
       </div>
     </div>
 

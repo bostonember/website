@@ -1,29 +1,18 @@
 import Ember from 'ember';
-import nextMeetupFromMeetups from 'boston-ember/utils/next-meetup-from-meetups';
 
 export default Ember.Route.extend({
   simpleFormSubmitter: Ember.inject.service(),
 
   model() {
-    return this.store.findQuery('meetup', {
+    let recentParams = {
       orderBy: 'date',
       limitToLast: 5
-    }).then((meetups) => {
-      return {
-        nextMeetup: nextMeetupFromMeetups(meetups),
-        latestMeetups: meetups
-      };
-    });
-  },
+    };
 
-  afterModel(model) {
-    if (model.nextMeetup) {
-      // preload speakers and presentations
-      return model.nextMeetup.get('presentations').then((presentations) => {
-        var speakers = presentations.mapBy('speaker');
-        return Ember.RSVP.all(speakers);
-      });
-    }
+    return new Ember.RSVP.hash({
+      meetups: this.store.find('meetup', recentParams),
+      workshops: this.store.find('workshop', recentParams)
+    });
   },
 
   actions: {
