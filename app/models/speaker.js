@@ -15,6 +15,10 @@ export default DS.Model.extend({
     return [first, last].compact().join(' ');
   }),
 
+  slug: Ember.computed('fullName', function() {
+    return this.get('fullName').dasherize();
+  }),
+
   githubAvatarURL: Ember.computed('github', function() {
     var github = this.get('github');
 

@@ -2,13 +2,15 @@ import Ember from 'ember';
 
 export default Ember.Route.extend({
   model() {
-    // just find all the things until we figure out a better way to
-    // store/sort the data with firebase
 
+    /**
+      Firebase doesn't seem to have a good way to filter through queries
+      (talks by speaker for example), so just return the world.
+    */
     return Ember.RSVP.hash({
-      meetups: this.store.findAll('meetup'),
-      talks: this.store.findAll('presentation'),
-      speakers: this.store.findAll('speaker')
+      meetups: this.store.find('meetup'),
+      talks: this.store.find('presentation'),
+      speakers: this.store.find('speaker')
     });
   }
 });
