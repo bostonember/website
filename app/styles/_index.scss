@@ -37,6 +37,10 @@
   .meetup-title {
     font-weight: $body-font-weight;
     font-size: 21px;
+    max-width: 32em;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 34px;
   }
 
   .meetup-date {
@@ -48,6 +52,9 @@
 
 .next-workshop {
   background: #333;
+  background-image: url(/assets/images/workshop_bg.jpg);
+  background-position: center;
+  background-size: cover;
   padding: 40px;
   color: #fff;
   text-align: center;
@@ -85,12 +92,7 @@
 
   button, .btn {
     margin-top: 12px;
-    background: $orange;
-    text-transform: uppercase;
-    font-size: 0.9em;
-    font-weight: 700;
-    border-radius: 2px;
-    border-color: transparent;
+    font-size: 0.8em;
   }
 }
 

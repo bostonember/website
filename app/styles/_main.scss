@@ -80,9 +80,10 @@ button, .btn {
   padding-right: 1em;
   background: none;
   text-transform: uppercase;
+  border-radius: 2px;
 
   &.white {
-    border: 1px solid white;
-    color: white;
+    border: 1px solid $orange;
+    color: $orange;
   }
 }
