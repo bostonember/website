@@ -83,3 +83,19 @@
   .lightning-talks {
   }
 }
+
+.talk-media-links {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+
+  li {
+    display: inline-block;
+    margin-right: 8px;
+  }
+
+  a {
+    font-size: 0.8em;
+    opacity: 0.6;
+  }
+}

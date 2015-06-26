@@ -28,6 +28,16 @@
     <button {{action 'showAddSpeakerModal'}} class="btn btn-default">Add Speaker</button>
   </div>
 
+  <div class="form-group">
+    <label>Slides Link</label>
+    {{input value=presentation.slidesLink class="form-control"}}
+  </div>
+
+  <div class="form-group">
+    <label>Video Link</label>
+    {{input value=presentation.videoLink class="form-control"}}
+  </div>
+
   {{#if isAddingSpeaker}}
     {{#modal-dialog alignment='center' translucentOverlay=true classNames='modal-content'}}
       {{#with presentation.speaker as |speaker|}}

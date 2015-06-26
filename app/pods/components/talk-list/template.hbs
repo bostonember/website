@@ -38,6 +38,8 @@
             <div class="col-md-12">
               <h4>{{talk.title}} by {{#link-to 'presentations' (query-params speaker=talk.speaker.slug)}}{{talk.speaker.fullName}}{{/link-to}}</h4>
               <p>{{format-markdown talk.body}}</p>
+              
+              {{talk-media-links talk=talk}}
             </div>
           </div>
         {{/each}}
@@ -52,6 +54,8 @@
               <div class="col-md-4">
                 <p class="title" title={{talk.title}}>{{talk.title}}</p>
                 <p class="by-line">by {{#link-to 'presentations' (query-params speaker=talk.speaker.slug)}}{{talk.speaker.fullName}}{{/link-to}}</p>
+
+                {{talk-media-links talk=talk}}
               </div>
             {{/each}}
           </div>

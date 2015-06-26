@@ -7,7 +7,9 @@
       <th>Date</th>
       <th>Title</th>
       <th>Body</th>
-      <th>Lightning?</th>
+      <th><i class="fa fa-bolt"></i></th>
+      <th><i class="fa fa-desktop"></i></th>
+      <th><i class="fa fa-video-camera"></i></th>
       <th></th>
     </tr>
   </thead>
@@ -22,6 +24,16 @@
           <td>
             {{#if talk.isLightningTalk}}
               <i class="fa fa-bolt"></i>
+            {{/if}}
+          </td>
+          <td>
+            {{#if talk.hasSlidesLink}}
+              <i class="fa fa-desktop"></i>
+            {{/if}}
+          </td>
+          <td>
+            {{#if talk.hasVideoLink}}
+              <i class="fa fa-video-camera"></i>
             {{/if}}
           </td>
           <td>
