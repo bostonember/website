@@ -9,6 +9,9 @@ var app = new EmberApp({
       'bower_components/bootstrap-sass/assets/stylesheets',
       'bower_components/font-awesome/scss'
     ]
+  },
+  dotEnv: {
+    clientAllowedKeys: ['FIREBASE_URL', 'FIREBASE_TEST_URL']
   }
 });
 

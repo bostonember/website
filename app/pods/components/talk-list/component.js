@@ -9,10 +9,17 @@ export default Ember.Component.extend({
   sort: ['date:desc'],
   sortedMeetups: computed.sort('meetups', 'sort'),
 
+  /**
+    TODO: currently this expects a query param,
+    it would be good to pass in the speaker object instead.
+  */
   speaker: undefined,
   isFilteringBySpeaker: computed.notEmpty('speaker'),
 
-  speakerName: Ember.computed('speaker', function() {
+  /**
+    Create a speaker name from a slug
+  **/
+  speakerName: computed('speaker', function() {
     let speaker = this.get('speaker');
 
     if (Ember.isEmpty(speaker)) {
@@ -22,6 +29,9 @@ export default Ember.Component.extend({
     return this.get('speaker').split('-').invoke('capitalize').join(' ');
   }),
 
+  /**
+    Filter a set of talks by speaker slug.
+  */
   filteredTalks: computed('talks', 'speaker', function() {
     let speaker = this.get('speaker');
     let talks = this.get('talks');

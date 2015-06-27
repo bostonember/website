@@ -2,8 +2,6 @@ import Ember from 'ember';
 import IsUpcomingMixin from '../../../mixins/is-upcoming';
 import { module, test } from 'qunit';
 
-let { moment } = window;
-
 module('IsUpcomingMixin');
 
 test('isUpcoming returns true if date is in the future', function(assert) {

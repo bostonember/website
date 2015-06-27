@@ -14,7 +14,7 @@ module.exports = function(environment) {
       'frame-src': "'self' https://ember-community-slackin.herokuapp.com"
     },
     // TODO: ENV var
-    firebase: 'https://bostonember.firebaseio.com/',
+    firebase: process.env.FIREBASE_URL,
     baseURL: '/',
     locationType: 'auto',
     EmberENV: {
@@ -48,6 +48,7 @@ module.exports = function(environment) {
     ENV.APP.LOG_VIEW_LOOKUPS = false;
 
     ENV.APP.rootElement = '#ember-testing';
+    ENV.firebase = process.env.FIREBASE_TEST_URL;
   }
 
   if (environment === 'production') {

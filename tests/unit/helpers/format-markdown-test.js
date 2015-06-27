@@ -7,6 +7,7 @@ module('FormatMarkdownHelper');
 
 // Replace this with your real tests.
 test('it works', function(assert) {
-  var result = formatMarkdown(42);
-  assert.ok(result);
+  var result = formatMarkdown('## Hi').toHTML();
+
+  assert.equal(result, "<h2 id=\"hi\">Hi</h2>");
 });
