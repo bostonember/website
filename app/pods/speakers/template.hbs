@@ -1,0 +1,10 @@
+<div class="speakers">
+  {{#each sortedSpeakers as |speaker|}}
+    <div class="speaker">
+      {{#link-to 'presentations' (query-params speaker=speaker.slug)}}
+        <img class="image img-rounded" src={{speaker.githubAvatarURL}}>
+        <div class="name">{{speaker.fullName}}</div>
+      {{/link-to}}
+    </div>
+  {{/each}}
+</div>

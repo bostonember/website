@@ -1,0 +1,20 @@
+.speakers {
+  text-align: center;
+}
+
+.speaker {
+  display: inline-block;
+  width: 180px;
+  margin: 0 0 20px;
+
+  img {
+    max-width: 100%;
+    height: auto;
+  }
+
+  .name {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+}

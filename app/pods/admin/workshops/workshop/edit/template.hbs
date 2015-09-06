@@ -1,0 +1,11 @@
+<h4>Edit Workshop</h4>
+
+<form class="form" {{action 'saveWorkshop' model on='submit'}}>
+  <div class="row">
+    {{workshop-form workshop=model}}
+  </div>
+
+  <div class="form-group">
+    <input type="submit" class="btn btn-primary" value='Create'>
+  </div>
+</form>

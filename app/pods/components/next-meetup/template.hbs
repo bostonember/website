@@ -1,0 +1,54 @@
+{{#if hasNextMeetup}}
+  <div class="row">
+    <div class="col-md-8 col-md-offset-2 info-block">
+      <h2>Next Meetup:</h2>
+      <h4 class="meetup-title">{{meetup.titleForDisplay}}</h4>
+      <h4 class="meetup-date">{{moment meetup.date 'MMMM Do, YYYY - h:mmA'}}</h4>
+
+      <a href="{{meetup.url}}" class="btn btn-primary">Join Us</a>
+    </div>
+  </div>
+
+  <h4 class="icon-title"><i class="fa fa-microphone"></i> Featured Talks</h4>
+  <div class="next-meetup-presentations">
+    {{#each meetup.fullLengthTalks as |p|}}
+      <div class="row presentation">
+        {{! TODO presentation component}}
+        <div class="col-md-3 col-md-offset-1">
+          {{#if p.hasImage}}
+            <img src={{p.image}}>
+          {{else}}
+            <img class="img-circle" src={{p.speaker.githubAvatarURL}}>
+          {{/if}}
+        </div>
+        <div class="col-md-6">
+          <p class="title">{{p.title}}</p>
+          <p class="by-line">by {{p.speaker.fullName}}</p>
+          <p class="body">{{p.body}}</p>
+        </div>
+      </div>
+    {{/each}}
+  </div>
+
+  {{#if meetup.hasLightningTalks}}
+    <h4 class="icon-title"><i class="fa fa-bolt"></i> Lightning Talks</h4>
+
+    <div class="lightning-talks">
+      {{#each meetup.lightningTalks as |p|}}
+        <div class="presentation">
+          {{! TODO: presentation-image which handles both}}
+          {{#if p.hasImage}}
+            <img src={{p.image}}>
+          {{else}}
+            <img class="img-circle" src={{p.speaker.githubAvatarURL}}>
+          {{/if}}
+          <p class="title">{{p.title}}</p>
+          <p class="by-line">by {{p.speaker.fullName}}</p>
+        </div>
+      {{/each}}
+    </div>
+  {{/if}}
+{{else}}
+  <h2>Next Meetup:</h2>
+  <h4>(none scheduled)</h4>
+{{/if}}

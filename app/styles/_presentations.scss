@@ -1,0 +1,101 @@
+.next-meetup-presentations {
+  margin: 30px 0 80px;
+
+  img {
+    max-width: 200px;
+    max-height: 200px;
+    height: auto;
+    margin-bottom: 20px;
+  }
+
+  .title, .by-line {
+    text-align: left;
+  }
+
+  .title {
+    margin: 0;
+    font-size: 1.1em;
+    font-weight: 700;
+  }
+
+  .body {
+    text-align: justify;
+  }
+
+  .presentation {
+    margin-bottom: 24px;
+  }
+}
+
+.lightning-talks {
+  margin: 30px 0;
+
+  .presentation {
+    display: inline-block;
+    width: 300px;
+    margin: 0 20px;
+  }
+
+  .title {
+    margin: 0;
+    font-weight: 700;
+    font-size: 0.9em;
+    overflow-x: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  img {
+    max-width: 100px;
+    max-height: 100px;
+    height: auto;
+  }
+}
+
+.talk-list {
+  .meetup {
+    padding-bottom: 30px;
+    border-bottom: 1px solid #efefef;
+    margin-bottom: 50px;
+  }
+
+  h3 {
+    span, a {
+      display: inline-block;
+      vertical-align: middle;
+    }
+
+    .btn {
+      padding: 4px 12px;
+      font-size: 13px;
+      margin-left: 10px;
+    }
+  }
+
+  .full-length-talks {
+    margin-bottom: 40px;
+
+    .talk {
+      margin-bottom: 24px;
+    }
+  }
+
+  .lightning-talks {
+  }
+}
+
+.talk-media-links {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+
+  li {
+    display: inline-block;
+    margin-right: 8px;
+  }
+
+  a {
+    font-size: 0.8em;
+    opacity: 0.6;
+  }
+}

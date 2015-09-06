@@ -1,0 +1,47 @@
+<div class="tomster">
+  <img src="/assets/images/tomster.png">
+</div>
+
+<div class="slack">
+  <h5>Join us in <a href="https://embercommunity.slack.com/messages/boston">#boston</a> on the Ember Community Slack!</h5>
+  <script async defer src="https://ember-community-slackin.herokuapp.com/slackin.js?large"></script>
+</div>
+
+{{next-meetup meetup=nextMeetup}}
+
+<div class="past-meetup-link">
+  {{#link-to 'presentations'}}view past meetups{{/link-to}}
+</div>
+
+{{#ember-wormhole to='announcement'}}
+  {{next-workshop workshop=nextWorkshop}}
+
+  <div class="container">
+    <div class="row">
+      <div class="col-md-8 col-md-offset-2 homepage-action">
+        <h3>Is there a topic you'd like to see?</h3>
+        <p>If there are specific topics you’d like to see covered in a talk or workshop, we want to hear your ideas! Otherwise, we just have to guess.</p>
+
+        <button class="btn btn-lg" {{action 'suggestTopic'}}>Let us Know</button>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-8 col-md-offset-2 homepage-action">
+        <h3>Are you interested in giving a talk?</h3>
+        <p>
+          We’d love to have you! If you’ve never given a technical talk before, we’d be happy to coach you or provide feedback on your idea or your presentation.
+        </p>
+        <p>Talks are generally 30 minutes, but if you want to show off a cool library you’ve built or worked with recently, we try to have a few lightning talks each month.</p>
+
+        <button class="btn btn-primary btn-lg" {{action 'addTalk'}}>Submit a talk</button>
+      </div>
+    </div>
+  </div>
+{{/ember-wormhole}}
+
+{{#if isSuggestingTopic}}
+  {{#modal-dialog alignment='center' translucentOverlay=true classNames='modal-content'}}
+    {{suggest-topic-form isPending=isPending on-cancel='dismissTopicModal' on-submit='submitTopic'}}
+  {{/modal-dialog}}
+{{/if}}

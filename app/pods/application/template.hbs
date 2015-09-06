@@ -1,0 +1,38 @@
+<div id="wrapper">
+
+  <div id="main" class="container {{pageClass}}">
+    <ul class="nav nav-pills">
+      {{#link-to 'index' tagName='li'}}
+        <a href="#" class="logo"><img src="/assets/images/logo.png" alt="Boston Ember"></a>
+      {{/link-to}}
+
+      {{#link-to 'presentations' tagName='li'}}
+        <a href="#">Talks</a>
+      {{/link-to}}
+
+      {{#link-to 'workshops' tagName='li'}}
+        <a href="#">Workshops</a>
+      {{/link-to}}
+
+      {{#link-to 'speakers' tagName='li'}}
+        <a href="#">Speakers</a>
+      {{/link-to}}
+
+      <li>
+        <a href="#" {{action 'addTalk'}}>Submit a Talk</a>
+      </li>
+    </ul>
+
+    <div class="content">
+      {{outlet}}
+    </div>
+  </div>
+
+  <div id="announcement"></div>
+</div>
+
+{{#if isAddingTalk}}
+  {{#modal-dialog alignment='center' translucentOverlay=true classNames='modal-content'}}
+    {{submit-talk-form isPending=isPending on-cancel='dismissTalkModal' on-submit='submitTalk'}}
+  {{/modal-dialog}}
+{{/if}}

@@ -1,0 +1,89 @@
+html, body {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-weight: $body-font-weight;
+  border-top: 20px solid $brand-primary;
+  border-bottom: 20px solid $brand-primary;
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+}
+
+#main {
+  padding-top: 40px;
+  padding-bottom: 40px;
+  text-align: center;
+  flex: 1;
+}
+
+.content {
+  text-align: left;
+
+  .index & {
+    text-align: center;
+  }
+}
+
+.nav-pills {
+  display: inline-block;
+  margin-bottom: 32px;
+
+  a {
+    color: #333;
+    font-size: 1em;
+    color: $green;
+  }
+
+  .logo {
+    padding: 0;
+    margin-right: 42px;
+
+    img {
+      height: 42px;
+    }
+  }
+}
+
+.nav-tabs {
+  font-size: 14px;
+}
+
+.tab-content {
+  padding-top: 20px;
+}
+
+.help-block {
+  font-size: 14px;
+}
+
+.icon-title {
+  font-size: 1.2em;
+
+  .fa {
+    margin-right: 4px;
+  }
+}
+
+#announcement {
+  h3 {
+    margin-top: 0;
+  }
+}
+
+button, .btn {
+  border: 1px solid $text-color;
+  color: $text-color;
+  padding-left: 1em;
+  padding-right: 1em;
+  background: none;
+  text-transform: uppercase;
+  border-radius: 2px;
+
+  &.white {
+    border: 1px solid $orange;
+    color: $orange;
+  }
+}

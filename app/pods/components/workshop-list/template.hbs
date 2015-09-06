@@ -1,0 +1,32 @@
+<h2>Upcoming Workshops</h2>
+<hr>
+
+<div class="upcoming-workshops">
+  {{#if hasUpcomingWorkshops}}
+    {{#each upcomingWorkshops as |workshop|}}
+      {{event-title event=workshop}}
+
+      <p>
+        {{format-markdown workshop.description}}
+      </p>
+    {{/each}}
+
+  {{else}}
+    <p>Nothing scheduled. We're working on it!</p>
+  {{/if}}
+</div>
+
+<h2>Past Workshops</h2>
+<hr>
+
+<div class="past-workshops">
+  {{#each pastWorkshops as |workshop|}}
+    <div class="workshop">
+      {{event-title event=workshop}}
+
+      <p>
+        {{format-markdown workshop.description}}
+      </p>
+    </div>
+  {{/each}}
+</div>

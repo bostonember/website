@@ -1,0 +1,47 @@
+{{#link-to 'admin.presentations.new' tagName='button' classNames='btn btn-primary'}}Add New{{/link-to}}
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Date</th>
+      <th>Title</th>
+      <th>Body</th>
+      <th><i class="fa fa-bolt"></i></th>
+      <th><i class="fa fa-desktop"></i></th>
+      <th><i class="fa fa-video-camera"></i></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    {{#each sortedMeetups as |meetup|}}
+      {{#each meetup.presentations as |talk|}}
+        <tr>
+          <td>{{talk.id}}</td>
+          <td>{{moment talk.meetup.date 'MM/DD/YYYY'}}</td>
+          <td>{{talk.title}}</td>
+          <td>{{talk.body}}</td>
+          <td>
+            {{#if talk.isLightningTalk}}
+              <i class="fa fa-bolt"></i>
+            {{/if}}
+          </td>
+          <td>
+            {{#if talk.hasSlidesLink}}
+              <i class="fa fa-desktop"></i>
+            {{/if}}
+          </td>
+          <td>
+            {{#if talk.hasVideoLink}}
+              <i class="fa fa-video-camera"></i>
+            {{/if}}
+          </td>
+          <td>
+            {{#link-to 'admin.presentations.presentation.edit' talk.id}}Edit{{/link-to}}
+            <a href="#" {{action 'deleteMeetup' meetup}}>Delete</a>
+          </td>
+        </tr>
+      {{/each}}
+    {{/each}}
+  </tbody>
+</table>

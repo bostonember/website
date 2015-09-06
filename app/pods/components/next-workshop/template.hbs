@@ -1,0 +1,13 @@
+{{#if hasNextWorkshop}}
+  <h3>Next Workshop - {{workshop.title}}*</h3>
+  <div class="description">
+    {{format-markdown workshop.description}}
+  </div>
+
+  <a href="{{workshop.url}}" class="btn white">Join Us</a>
+{{else}}
+  <h3>Next Workshop*</h3>
+  <p>Nothing scheduled. We're working on it!</p>
+{{/if}}
+
+<p class="note">*Workshop space is limited. See the meetup page for full details.</p>

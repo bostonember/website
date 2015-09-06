@@ -1,0 +1,102 @@
+.tomster {
+  img {
+    max-height: 300px;
+    margin-bottom: 20px;
+  }
+}
+
+.slack {
+  text-align: center;
+  margin: 20px 0 60px;
+
+  iframe {
+    width: 181px !important;
+  }
+
+  h5 {
+    font-weight: normal;
+    font-style: italic;
+    color: #aaa;
+    font-size: 15px;
+  }
+}
+
+.next-meetup {
+  .info-block {
+    border-bottom: 1px solid $peach;
+    border-top: 1px solid $peach;
+    padding: 30px;
+    margin-bottom: 80px;
+  }
+
+  h2 {
+    font-size: 30px;
+    margin-top: 0;
+  }
+
+  .meetup-title {
+    font-weight: $body-font-weight;
+    font-size: 21px;
+    max-width: 32em;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 34px;
+  }
+
+  .meetup-date {
+    color: $orange;
+    font-size: 26px;
+    margin: 24px 0;
+  }
+}
+
+.next-workshop {
+  background: #333;
+  background-image: url(/assets/images/workshop_bg.jpg);
+  background-position: center;
+  background-size: cover;
+  padding: 40px;
+  color: #fff;
+  text-align: center;
+  margin: 20px 0 60px 0;
+
+  p {
+    font-size: 20px;
+    margin-bottom: 1.8em;
+  }
+
+  .description {
+    margin-top: 2em;
+
+    p {
+      max-width: 32em;
+      margin-left: auto;
+      margin-right: auto;
+    }
+  }
+
+  .note {
+    margin: 40px 0 0;
+    font-size: 14px;
+    opacity: 0.25;
+  }
+}
+
+.past-meetup-link {
+  font-size: 1.2em;
+}
+
+.homepage-action {
+  margin-bottom: 80px;
+  text-align: center;
+
+  button, .btn {
+    margin-top: 12px;
+    font-size: 0.8em;
+  }
+}
+
+textarea.large {
+  height: 200px;
+  width: 300px;
+}

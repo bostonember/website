@@ -1,0 +1,27 @@
+@import 'variables';
+@import 'bootstrap';
+
+$fa-font-path: '../fonts';
+@import 'font-awesome';
+
+@import 'main';
+@import 'index';
+@import 'admin';
+@import 'speakers';
+@import 'presentations';
+@import 'workshops';
+
+@import 'loading-spinner';
+
+@import "ember-modal-dialog/ember-modal-structure";
+
+.ember-modal-overlay.translucent {
+  opacity: 0.77;
+  filter: alpha(opacity=15);
+  background-color: #808080;
+}
+
+// keep bootstrap styling
+.ember-modal-dialog {
+  @extend .modal-content;
+}

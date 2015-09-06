@@ -1,0 +1,67 @@
+{{#if isFilteringBySpeaker}}
+
+  <div class="alert alert-info" role="alert">
+    Viewing presentations by {{speakerName}}. {{#link-to 'presentations' (query-params speaker=undefined)}}Show All{{/link-to}}
+  </div>
+
+  {{#each filteredTalks as |talk|}}
+    <div class="meetup">
+      {{event-title event=talk.meetup}}
+
+      {{#if talk.isLightningTalk}}
+        <div class="lightning-talks">
+          <h4 class="subtitle"><i class="fa fa-bolt"></i> Lightning Talks</h4>
+
+          <div class="row">
+            <div class="col-md-4">
+              <p class="title" title={{talk.title}}>{{talk.title}}</p>
+              <p class="by-line">by {{#link-to 'presentations' (query-params speaker=talk.speaker.slug)}}{{talk.speaker.fullName}}{{/link-to}}</p>
+            </div>
+          </div>
+        </div>
+      {{else}}
+        <div class="full-length-talks">
+          <h4>{{talk.title}} by {{#link-to 'presentations' (query-params speaker=talk.speaker.slug)}}{{talk.speaker.fullName}}{{/link-to}}</h4>
+          <p>{{format-markdown talk.body}}</p>
+        </div>
+      {{/if}}
+    </div>
+  {{/each}}
+{{else}}
+  {{#each sortedMeetups as |meetup|}}
+    <div class="meetup">
+      {{event-title event=meetup}}
+
+      <div class="full-length-talks">
+        {{#each meetup.fullLengthTalks as |talk|}}
+          <div class="talk row">
+            <div class="col-md-12">
+              <h4>{{talk.title}} by {{#link-to 'presentations' (query-params speaker=talk.speaker.slug)}}{{talk.speaker.fullName}}{{/link-to}}</h4>
+              <p>{{format-markdown talk.body}}</p>
+              
+              {{talk-media-links talk=talk}}
+            </div>
+          </div>
+        {{/each}}
+      </div>
+
+      {{#if meetup.hasLightningTalks}}
+        <div class="lightning-talks">
+          <h4 class="subtitle"><i class="fa fa-bolt"></i> Lightning Talks</h4>
+
+          <div class="row">
+            {{#each meetup.lightningTalks as |talk|}}
+              <div class="col-md-4">
+                <p class="title" title={{talk.title}}>{{talk.title}}</p>
+                <p class="by-line">by {{#link-to 'presentations' (query-params speaker=talk.speaker.slug)}}{{talk.speaker.fullName}}{{/link-to}}</p>
+
+                {{talk-media-links talk=talk}}
+              </div>
+            {{/each}}
+          </div>
+        </div>
+      {{/if}}
+    </div>
+
+  {{/each}}
+{{/if}}
